@@ -1,0 +1,12 @@
+-- SELECT <LISTA DE COLUNAS> FROM <TABELA> WHERE <FILTRO>
+
+
+
+SELECT nm_produto as 'Nome do Cliente',
+	dt_criação as 'Data de Criação',
+	now() as 'Data Atual'
+FROM aula.estoque;
+
+SELECT * FROM aula.estoque WHERE phone IS NULL;
+
+SELECT * as 'ESTOQUE' FROM aula.estoque WHERE qtd_estoque < 100;
