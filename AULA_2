@@ -1,0 +1,55 @@
+/*comentario 
+de multiplas linhas*/
+CREATE DATABASE laranja /*DEIXAR O PRIMEIRO COMANDO SEM ; PARA SEGURANÇA*/
+
+DROP DATABASE laranja;
+
+CREATE DATABASE aula;
+
+USE aula;
+
+CREATE TABLE aula.endereco (
+	cd_endereco int auto_increment primary key,
+    nm_logradouro VARCHAR(100) NOT NULL,
+	tp_logradouro VARCHAR(10) NOT NULL
+);
+
+CREATE TABLE aula.cliente (
+	cd_cliente int auto_increment primary key,
+	nm_clinte VARCHAR(50) NOT NULL,
+    dt_nascimento DATE NOT NULL,
+    nr_cpf int NOT NULL UNIQUE,
+    fk_endereco int NOT NULL,
+    
+    CONSTRAINT FOREIGN KEY (fk_endereco) REFERENCES aula.endereco(cd_endereco)
+);
+
+
+CREATE DATABASE exercicio;
+
+/*CREATE DATABASE estoque;*/
+
+CREATE TABLE exercicio.estoque(
+	cd_estoque int auto_increment primary key,
+	dt_vencimento DATE NOT NULL,
+    dt_compra DATE NOT NULL,
+    dt_criacao datetime default now(),
+	vl_produto decimal(10,2) NOT NULL,
+	fk_estoque int NOT NULL,
+    
+    CONSTRAINT FOREIGN KEY (fk_estoque) REFERENCES exercicio.estoque(cd_estoque)
+);
+
+CREATE TABLE exercicio.produto(
+	cd_produto int auto_increment primary key,
+    nm_produto VARCHAR(70) NOT NULL
+);
+
+
+
+
+/*ALTERANDO DATABASE estoque;*/
+
+ALTER TABLE aula.cliente ADD COLUMN phone VARCHAR(50);
+
+/*MODIFY*/
